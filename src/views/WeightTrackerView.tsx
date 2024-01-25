@@ -1,9 +1,5 @@
-import WeightTracker from '../components/WeightTracker'
+// import WeightTracker from '../components/WeightTracker'
 
 export default function WeightTrackerView() {
-  return (
-    <div>
-      <WeightTracker />
-    </div>
-  )
+  return <div>Weight tracker view{/* <WeightTracker /> */}</div>
 }
