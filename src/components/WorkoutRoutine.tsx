@@ -20,9 +20,14 @@ export default function WorkoutRoutine() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await supabase.from('exercises').select()
+      const { data, error } = await supabase.from('exercises').select()
       console.log('fetched exercises: ', data)
-      setFetchedExercises(data?.data)
+      console.log(typeof data)
+      if (error) {
+        console.log(`Error: ${error}`)
+      } else {
+        setFetchedExercises(data)
+      }
     }
     fetchData()
   }, [])
