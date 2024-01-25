@@ -1,9 +1,10 @@
-import WorkoutRoutine from '../components/WorkoutRoutine'
+// import WorkoutRoutine from '../components/WorkoutRoutine'
 
 export default function WorkoutRoutineView() {
   return (
     <div>
-      <WorkoutRoutine />
+      {/* <WorkoutRoutine /> */}
+      Hi
     </div>
   )
 }
