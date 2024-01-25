@@ -1,57 +1,54 @@
 import { useLocation } from 'react-router-dom'
-// import { fetchExercises } from '../api/exercises'
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { supabase } from '../supabase-client'
 
-// interface Exercises {
-//   id: number
-//   name: string
-//   description: string
-//   muscle_group: string
-//   difficulty: string
-//   reps: number
-// }
+interface Exercises {
+  id: number
+  name: string
+  description: string
+  muscle_group: string
+  difficulty: string
+  reps: number
+}
 
 export default function WorkoutRoutine() {
   const location = useLocation()
   const user = location.state?.user
-  // const fitnessLevel = user.fitness_level
+  const fitnessLevel = user.fitness_level
 
-  // const [fetchedExercises, setFetchedExercises] = useState([] as Exercises[])
+  const [fetchedExercises, setFetchedExercises] = useState<Exercises[]>([])
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const data = await fetchExercises()
-  //       setFetchedExercises(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   fetchData()
-  // }, [])
+  useEffect(() => {
+    async function fetchData() {
+      const data = await supabase.from('exercises').select()
+      console.log('fetched exercises: ', data)
+      setFetchedExercises(data?.data)
+    }
+    fetchData()
+  }, [])
 
-  // const filteredExercises = fetchedExercises.filter(
-  //   (exercise) =>
-  //     (fitnessLevel >= 0 &&
-  //       fitnessLevel <= 3 &&
-  //       exercise.difficulty === 'Beginner') ||
-  //     (fitnessLevel >= 4 &&
-  //       fitnessLevel <= 7 &&
-  //       exercise.difficulty === 'Intermediate') ||
-  //     (fitnessLevel >= 8 &&
-  //       fitnessLevel <= 10 &&
-  //       exercise.difficulty === 'Advanced'),
-  // )
+  const filteredExercises = fetchedExercises.filter(
+    (exercise) =>
+      (fitnessLevel >= 0 &&
+        fitnessLevel <= 3 &&
+        exercise.difficulty === 'Beginner') ||
+      (fitnessLevel >= 4 &&
+        fitnessLevel <= 7 &&
+        exercise.difficulty === 'Intermediate') ||
+      (fitnessLevel >= 8 &&
+        fitnessLevel <= 10 &&
+        exercise.difficulty === 'Advanced')
+  )
 
   //Split the filtered workout routine into 4 different days
-  // const exercisesPerDay = 4
+  const exercisesPerDay = 4
 
-  // const workoutDays = []
-  // for (let i = 0; i < 4; i++) {
-  //   const startIndex = i * exercisesPerDay
-  //   const endIndex = startIndex + exercisesPerDay
-  //   workoutDays.push(filteredExercises.slice(startIndex, endIndex))
-  // }
+  const workoutDays = []
+  for (let i = 0; i < 4; i++) {
+    const startIndex = i * exercisesPerDay
+    const endIndex = startIndex + exercisesPerDay
+    workoutDays.push(filteredExercises.slice(startIndex, endIndex))
+  }
 
   return (
     <>
@@ -61,7 +58,7 @@ export default function WorkoutRoutine() {
       </div>
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-          {/* {workoutDays.map((exercises, dayIndex) => (
+          {workoutDays.map((exercises, dayIndex) => (
             <div key={dayIndex}>
               <ul className="list-disc pl-6 border-2 border-white border-solid p-4 bg-white text-black list-none">
                 <h2 className="text-3xl font-semibold text-red text-center mb-3">
@@ -87,8 +84,8 @@ export default function WorkoutRoutine() {
                   </li>
                 ))}
               </ul>
-            </div> */}
-          {/* ))} */}
+            </div>
+          ))}
         </div>
       </div>
     </>

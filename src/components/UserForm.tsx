@@ -1,10 +1,10 @@
 import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { addNewUser } from '../api/users'
+import { useNavigate } from 'react-router-dom'
 import { UserData } from '../models/users'
+import { supabase } from '../supabase-client'
 
 export default function UserForm() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const initialState: UserData = {
     first_name: '',
     last_name: '',
@@ -15,41 +15,38 @@ export default function UserForm() {
   }
 
   const [formData, setFormData] = useState(initialState)
-  // const [isFormValid, setIsFormValid] = useState(false)
+  const [isFormValid, setIsFormValid] = useState(false)
 
-  // function validForm(formData: UserData) {
-  //   if (
-  //     formData.first_name.length > 0 &&
-  //     formData.last_name.length > 0 &&
-  //     formData.age > 0 &&
-  //     formData.height > 0 &&
-  //     formData.weight > 0 &&
-  //     formData.target_weight > 0
-  //   ) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
+  function validForm(formData: UserData) {
+    if (
+      formData.first_name.length > 0 &&
+      formData.last_name.length > 0 &&
+      formData.age > 0 &&
+      formData.height > 0 &&
+      formData.weight > 0 &&
+      formData.target_weight > 0
+    ) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const updatedFormData = { ...formData, [e.target.name]: e.target.value }
     setFormData(updatedFormData)
-    // setIsFormValid(validForm(updatedFormData))
+    setIsFormValid(validForm(updatedFormData))
   }
 
-  // async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
-  //   e.preventDefault()
+  async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
 
-  //   try {
-  //     const newUser = await addNewUser(formData)
-  //     localStorage.setItem('userData', JSON.stringify(newUser))
+    const newUser = await supabase.from('users').insert(formData)
+    console.log(newUser)
 
-  //     navigate('/workout-goals', { state: { user: newUser } })
-  //   } catch (error) {
-  //     console.error('Error adding new user', error)
-  //   }
-  // }
+    localStorage.setItem('userData', JSON.stringify(newUser))
+    navigate('/workout-goals', { state: { user: newUser } })
+  }
 
   return (
     <>
@@ -123,7 +120,7 @@ export default function UserForm() {
             className="text-slate-900"
           ></input>
         </div>
-        {/* <button
+        <button
           type="submit"
           onClick={handleSubmit}
           className={`bg-red text-white py-2 px-14 rounded-3xl text-xl ${
@@ -132,7 +129,7 @@ export default function UserForm() {
           disabled={!isFormValid}
         >
           Submit
-        </button> */}
+        </button>
       </form>
     </>
   )

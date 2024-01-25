@@ -1,9 +1,6 @@
-import { useLocation } from 'react-router-dom'
 import GoalContainer from './UI/GoalContainer'
 
 export default function Goal() {
-  const location = useLocation()
-
   const storedUserData = localStorage.getItem('userData')
   const user = storedUserData ? JSON.parse(storedUserData) : null
   return (
