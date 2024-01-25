@@ -65,7 +65,7 @@ export default function WorkoutRoutine() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           {workoutDays.map((exercises, dayIndex) => (
             <div key={dayIndex}>
-              <ul className="list-disc pl-6 border-2 border-white border-solid p-4 bg-white text-black list-none">
+              <ul className="list-disc pl-6 border-2 border-white border-solid p-4 bg-white text-black">
                 <h2 className="text-3xl font-semibold text-red text-center mb-3">
                   Day {dayIndex + 1}
                 </h2>
