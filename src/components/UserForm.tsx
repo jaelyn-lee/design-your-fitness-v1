@@ -17,6 +17,7 @@ export default function UserForm() {
   const [formData, setFormData] = useState(initialState)
   const [isFormValid, setIsFormValid] = useState(false)
 
+  //Use ZOD to validate type
   function validForm(formData: UserData) {
     if (
       formData.first_name.length > 0 &&
@@ -63,7 +64,7 @@ export default function UserForm() {
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
-            className="text-slate-900"
+            className="rounded-sm"
             required
           ></input>
         </div>
@@ -74,7 +75,7 @@ export default function UserForm() {
             name="last_name"
             value={formData.last_name}
             onChange={handleChange}
-            className="text-slate-900"
+            className="rounded-sm"
           ></input>
         </div>
         <div className="flex justify-between">
@@ -84,7 +85,7 @@ export default function UserForm() {
             name="age"
             value={formData.age}
             onChange={handleChange}
-            className="text-slate-900"
+            className="rounded-sm"
           ></input>
         </div>
         <div className="flex justify-between">
@@ -95,7 +96,7 @@ export default function UserForm() {
             name="height"
             value={formData.height}
             onChange={handleChange}
-            className="text-slate-900"
+            className="rounded-sm"
           ></input>
         </div>
         <div className="flex justify-between">
@@ -106,7 +107,7 @@ export default function UserForm() {
             name="weight"
             value={formData.weight}
             onChange={handleChange}
-            className="text-slate-900"
+            className="rounded-sm"
           ></input>
         </div>
         <div className="flex justify-between">
@@ -117,7 +118,7 @@ export default function UserForm() {
             name="target_weight"
             value={formData.target_weight}
             onChange={handleChange}
-            className="text-slate-900"
+            className="rounded-sm"
           ></input>
         </div>
         <button
