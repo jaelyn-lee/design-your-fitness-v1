@@ -43,7 +43,6 @@ export default function UserForm() {
     e.preventDefault()
 
     const newUser = await supabase.from('users').insert(formData)
-    console.log(newUser)
 
     localStorage.setItem('userData', JSON.stringify(newUser))
     navigate('/workout-goals', { state: { user: newUser } })
@@ -58,67 +57,79 @@ export default function UserForm() {
         className="grid place-content-center w-full m-auto gap-4"
       >
         <div className="flex justify-between">
-          <label htmlFor="first_name">FIRST NAME: </label>
+          <label htmlFor="first_name" className="py-1 px-3 box-border">
+            FIRST NAME:{' '}
+          </label>
           <input
             type="text"
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
-            className="rounded-sm"
+            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
             required
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="last_name">LAST NAME: </label>
+          <label htmlFor="last_name" className="py-1 px-3 box-border">
+            LAST NAME:{' '}
+          </label>
           <input
             type="text"
             name="last_name"
             value={formData.last_name}
             onChange={handleChange}
-            className="rounded-sm"
+            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="age">AGE: </label>
+          <label htmlFor="age" className="py-1 px-3 box-border">
+            AGE:{' '}
+          </label>
           <input
             type="number"
             name="age"
             value={formData.age}
             onChange={handleChange}
-            className="rounded-sm"
+            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="height">HEIGHT: </label>
+          <label htmlFor="height" className="py-1 px-3 box-border">
+            HEIGHT:{' '}
+          </label>
           <input
             type="float"
             placeholder="cm"
             name="height"
             value={formData.height}
             onChange={handleChange}
-            className="rounded-sm"
+            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="weight">WEIGHT: </label>
+          <label htmlFor="weight" className="py-1 px-3 box-border">
+            WEIGHT:{' '}
+          </label>
           <input
             type="float"
             placeholder="kg"
             name="weight"
             value={formData.weight}
             onChange={handleChange}
-            className="rounded-sm"
+            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="target_weight">TARGET WEIGHT: </label>
+          <label htmlFor="target_weight" className="py-1 px-3 box-border">
+            TARGET WEIGHT:{' '}
+          </label>
           <input
             type="float"
             placeholder="kg"
             name="target_weight"
             value={formData.target_weight}
             onChange={handleChange}
-            className="rounded-sm"
+            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
           ></input>
         </div>
         <button
