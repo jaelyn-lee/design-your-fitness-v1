@@ -59,14 +59,6 @@ body {
   margin: 0 10px;
 }
 
-@media screen and (min-width: 350px) {
-  body {
-    background-position: 0;
-    background-repeat: no-repeat;
-    height: 100vh;
-  }
-}
-
 main {
   margin-top: 100px;
   width: 100vw;
@@ -93,11 +85,12 @@ main {
   margin: 20px 0 0 0;
 }
 
-@media screen and (mid-width: 640px) {
+@media screen and (min-width: 1024px) {
   .goal-div {
-    margin: 100px 0 0 0;
+    justify-content: center;
   }
 }
+
 .goal-container {
   background-color: beige;
   width: 27%;
@@ -109,6 +102,14 @@ main {
 @media screen and (min-width: 640px) {
   .goal-container {
     height: 40vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .goal-container {
+    height: 62vh;
+    width: 20%;
+    margin: 0 40px;
   }
 }
 
@@ -152,6 +153,14 @@ main {
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .goal-container-button {
+    padding: 0.75rem;
+    font-size: large;
+    font-weight: 500;
+  }
+}
+
 .user-form-label {
   padding: 0.25rem 0.75rem;
   box-sizing: border-box;
@@ -160,6 +169,12 @@ main {
 @media screen and (min-width: 640px) {
   .user-form-label {
     font-size: xx-large;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user-form-label {
+    font-size: large;
   }
 }
 
@@ -176,5 +191,11 @@ main {
 @media screen and (min-width: 640px) {
   .user-form-input {
     font-size: xx-large;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user-form-input {
+    font-size: large;
   }
 }

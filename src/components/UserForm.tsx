@@ -156,7 +156,7 @@ export default function UserForm() {
         <button
           type="submit"
           onClick={handleSubmit}
-          className={`bg-red text-white py-2 px-14 rounded-3xl text-xl mt-5 sm:text-4xl sm:py-4 sm:px-20 ${
+          className={`bg-red text-white py-2 px-14 rounded-3xl text-xl mt-5 sm:text-4xl sm:py-4 sm:px-20 lg:text-xl lg:py-3${
             isFormValid ? '' : ' opacity-50 cursor-not-allowed'
           }`}
           disabled={!isFormValid}

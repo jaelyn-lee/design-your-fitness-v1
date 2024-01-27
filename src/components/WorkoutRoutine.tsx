@@ -66,29 +66,31 @@ export default function WorkoutRoutine() {
           {workoutDays.map((exercises, dayIndex) => (
             <div key={dayIndex}>
               <ul className="list-disc pl-6 border-2 border-white border-solid p-4 bg-white text-black">
-                <h2 className="text-xl font-bold sm:text-4xl sm:font-semibold text-red text-center mb-3 sm:mb-6">
+                <h2 className="text-xl font-bold sm:text-4xl lg:text-3xl sm:font-semibold text-red text-center mb-3 sm:mb-6 lg:mb-3">
                   Day {dayIndex + 1}
                 </h2>
                 {exercises.map((routine, exerciseIndex) => (
                   <li key={exerciseIndex} className="text-center">
                     <div className="mb-3 sm:mb-8">
                       <p>
-                        <span className="font-extrabold text-xl sm:text-3xl">
+                        <span className="font-extrabold text-xl sm:text-3xl lg:text-xl">
                           {routine.name}{' '}
                         </span>{' '}
-                        <span className="sm:text-2xl">
+                        <span className="sm:text-2xl lg:text-base">
                           ({routine.muscle_group})
                         </span>
                       </p>
                       <p>
-                        <span className="font-bold text-base sm:text-3xl">
+                        <span className="font-bold text-base sm:text-3xl lg:text-xl">
                           3
                         </span>{' '}
-                        <span className="sm:text-2xl">sets x </span>
-                        <span className="font-bold text-base sm:text-3xl">
+                        <span className="sm:text-2xl lg:text-base">
+                          sets x{' '}
+                        </span>
+                        <span className="font-bold text-base sm:text-3xl lg:text-xl">
                           {routine.reps}
                         </span>{' '}
-                        <span className="sm:text-2xl">reps</span>
+                        <span className="sm:text-2xl lg:text-base">reps</span>
                       </p>
                     </div>
                   </li>
