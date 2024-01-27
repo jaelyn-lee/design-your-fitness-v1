@@ -57,16 +57,16 @@ export default function WorkoutRoutine() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center text-4xl font-extrabold mb-10">
+      <div className="flex flex-col items-center justify-center text-2xl font-bold sm:text-4xl sm:font-extrabold mb-10 text-center">
         <h1>Thank you, {user.first_name}!</h1>
         <h1>Here is your 4-day workout routine!</h1>
       </div>
       <div className="flex justify-center items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           {workoutDays.map((exercises, dayIndex) => (
             <div key={dayIndex}>
               <ul className="list-disc pl-6 border-2 border-white border-solid p-4 bg-white text-black">
-                <h2 className="text-3xl font-semibold text-red text-center mb-3">
+                <h2 className="text-xl font-bold sm:text-3xl sm:font-semibold text-red text-center mb-3">
                   Day {dayIndex + 1}
                 </h2>
                 {exercises.map((routine, exerciseIndex) => (
@@ -79,8 +79,8 @@ export default function WorkoutRoutine() {
                         ({routine.muscle_group})
                       </p>
                       <p>
-                        <span className="font-bold text-xl">3</span> sets x{' '}
-                        <span className="font-bold text-xl">
+                        <span className="font-bold text-base">3</span> sets x{' '}
+                        <span className="font-bold text-base">
                           {routine.reps}
                         </span>{' '}
                         reps

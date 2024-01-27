@@ -5,7 +5,9 @@ export default function Goal() {
   const user = storedUserData ? JSON.parse(storedUserData) : null
   return (
     <div>
-      <h1 className="goal-title">Choose your goal</h1>
+      <h1 className="uppercase text-center font-extrabold text-4xl sm:text-8xl pt-36 sm:pt-44">
+        Choose your goal
+      </h1>
       <div className="goal-div">
         <GoalContainer
           workout_goal="Weight Loss"

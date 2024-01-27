@@ -4,7 +4,11 @@ function Logo() {
   return (
     <Link to="/">
       <button>
-        <img src="/images/logo-no-background.png" alt="Logo" className="w-44" />
+        <img
+          src="/images/logo-no-background.png"
+          alt="Logo"
+          className="w-20 sm:w-44"
+        />
       </button>
     </Link>
   )

@@ -17,6 +17,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+li {
+  list-style: none;
+  /* position: relative; */
+}
+/* li:before {
+  content: '';
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #000;
+} */
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -53,6 +69,15 @@ body {
   background-size: cover;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
+  margin: 0 10px;
+}
+
+@media screen and (min-width: 350px) {
+  body {
+    background-position: 0;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
 }
 
 main {
@@ -75,49 +100,75 @@ main {
   /* position: relative; */
 }
 
-.userInfo-heading {
-  font-weight: 600;
-  font-size: 80px;
-  margin-top: 150px;
-  text-align: center;
-}
-
-.goal-title {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 50px;
-}
-
 .goal-div {
   display: flex;
   justify-content: space-around;
-  padding: 1rem 5rem;
+  margin: 20px 0 0 0;
+  /* padding: 1rem 5rem;
+  margin: 0 2rem 0 0; */
 }
 .goal-container {
   background-color: beige;
-  width: 23vw;
+  width: 27%;
   position: relative;
-  height: 60vh;
+  height: 30vh;
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 640px) {
+  .goal-container {
+    background-color: beige;
+    width: 23vw;
+    position: relative;
+    height: 60vh;
+    padding: 10px 5px;
+  }
 }
 
 .goal-container-image {
-  height: 95%;
-  position: absolute;
-  left: 100px;
-  top: 10px;
-  z-index: 1;
+  height: 100%;
+  padding: 0.5rem 0.25rem;
+}
+
+@media screen and (min-width: 640px) {
+  .goal-container-image {
+    height: 100%;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+    z-index: 1;
+  }
 }
 
 .goal-container-button {
   position: absolute;
-  left: 100px;
-  top: 200px;
-  width: 230px;
-  padding: 1rem 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0.5rem 0.25rem;
   border-radius: 30px;
-  border: 1px solid red;
-  background-color: red;
+  border: 1px solid #ab0404;
+  background-color: #ab0404;
   color: white;
-  font-size: x-large;
-  z-index: 1;
+  font-size: small;
+  text-align: center;
+  font-weight: 400;
+  /* z-index: 1; */
+}
+
+@media screen and (min-width: 640px) {
+  .goal-container-button {
+    position: absolute;
+    left: 100px;
+    top: 200px;
+    width: 230px;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: 1px solid #ab0404;
+    background-color: #ab0404;
+    color: white;
+    font-size: x-large;
+    z-index: 1;
+  }
 }

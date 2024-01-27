@@ -2,9 +2,28 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserData } from '../models/users'
 import { supabase } from '../supabase-client'
+// import { number, z } from 'zod'
 
 export default function UserForm() {
   const navigate = useNavigate()
+
+  //Use ZOD to validate type
+  // const invalid_type_error = 'Invalid type provided for this field'
+  // const required_error = 'This field cannot be blank'
+  // const UserSchema = z.object({
+  //   first_name: z
+  //     .string({ invalid_type_error, required_error })
+  //     .min(1, { message: required_error }),
+  //   last_name: z
+  //     .string({ invalid_type_error, required_error })
+  //     .min(1, { message: required_error }),
+  //   age: number({ invalid_type_error, required_error }).positive(),
+  //   height: number({ invalid_type_error, required_error }).positive(),
+  //   weight: number({ invalid_type_error, required_error }).positive(),
+  //   target_weight: number({ invalid_type_error, required_error }).positive(),
+  // })
+  // type User = z.infer<typeof UserSchema>
+
   const initialState: UserData = {
     first_name: '',
     last_name: '',
@@ -17,15 +36,15 @@ export default function UserForm() {
   const [formData, setFormData] = useState(initialState)
   const [isFormValid, setIsFormValid] = useState(false)
 
-  //Use ZOD to validate type
+  //add alert when user adds undefined data
   function validForm(formData: UserData) {
     if (
       formData.first_name.length > 0 &&
       formData.last_name.length > 0 &&
-      formData.age > 0 &&
-      formData.height > 0 &&
-      formData.weight > 0 &&
-      formData.target_weight > 0
+      formData.age > 10 &&
+      formData.height > 100 &&
+      formData.weight > 20 &&
+      formData.target_weight > 20
     ) {
       return true
     } else {
@@ -50,11 +69,13 @@ export default function UserForm() {
 
   return (
     <>
-      <h1 className="userInfo-heading">CHOOSE YOUR PERFECT BODY</h1>
+      <h1 className="font-semibold text-4xl sm:text-7xl mt-24 sm:mt-36 text-center">
+        CHOOSE YOUR PERFECT BODY
+      </h1>
       <form
         action="/user-form"
         method="POST"
-        className="grid place-content-center w-full m-auto gap-4"
+        className="grid place-content-center w-full m-auto gap-4 mt-10"
       >
         <div className="flex justify-between">
           <label htmlFor="first_name" className="py-1 px-3 box-border">
@@ -135,7 +156,7 @@ export default function UserForm() {
         <button
           type="submit"
           onClick={handleSubmit}
-          className={`bg-red text-white py-2 px-14 rounded-3xl text-xl ${
+          className={`bg-red text-white py-2 px-14 rounded-3xl text-xl mt-5 ${
             isFormValid ? '' : ' opacity-50 cursor-not-allowed'
           }`}
           disabled={!isFormValid}

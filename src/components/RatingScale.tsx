@@ -24,11 +24,13 @@ export default function RatingScale({ rating, onChange }: RatingScaleProps) {
 
   return (
     <div className="">
-      <p className=" font-normal text-2xl">
-        Rating: <span className="text-green">{rating} </span>
+      <p className=" font-normal text-xl sm:text-2xl flex flex-col sm:flex sm:flex-row h-[85px]">
+        <p>
+          Rating <span className="text-green">{rating} </span>
+        </p>
         <span>{ratingDescription[rating]}</span>
       </p>
-      <div className="bg-white text-black text-lg flex justify-between px-4 py-2 rounded-lg">
+      <div className="bg-white text-black text-lg flex justify-between px-4 py-2 rounded-lg mt-2 sm:mt-0">
         {[...Array(11)].map((_, index) => (
           <button key={index} onClick={() => handleClick(index)}>
             {index}
