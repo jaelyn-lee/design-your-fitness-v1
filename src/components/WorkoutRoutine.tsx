@@ -14,6 +14,8 @@ interface Exercises {
 export default function WorkoutRoutine() {
   const location = useLocation()
   const user = location.state?.user
+  console.log(location.state)
+
   const fitnessLevel = user.fitness_level
 
   const [fetchedExercises, setFetchedExercises] = useState<Exercises[]>([])

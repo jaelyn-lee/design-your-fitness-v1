@@ -60,11 +60,16 @@ export default function UserForm() {
 
   async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
-
-    const newUser = await supabase.from('users').insert(formData)
-
-    localStorage.setItem('userData', JSON.stringify(newUser))
-    navigate('/workout-goals', { state: { user: newUser } })
+    try {
+      const newUser = await supabase.from('users').insert(formData)
+      localStorage.setItem('userData', JSON.stringify(newUser))
+      console.log(localStorage.getItem('userData'))
+      navigate('/workout-goals', { state: { user: newUser } })
+    } catch (error) {
+      if (error) {
+        console.log(`[Add New User Failed] ${error}`)
+      }
+    }
   }
 
   return (
