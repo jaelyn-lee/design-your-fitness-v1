@@ -57,7 +57,7 @@ export default function WorkoutRoutine() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center text-2xl font-bold sm:text-4xl sm:font-extrabold mb-10 text-center">
+      <div className="flex flex-col items-center justify-center text-2xl font-bold sm:text-6xl sm:font-extrabold mb-10 text-center">
         <h1>Thank you, {user.first_name}!</h1>
         <h1>Here is your 4-day workout routine!</h1>
       </div>
@@ -66,24 +66,29 @@ export default function WorkoutRoutine() {
           {workoutDays.map((exercises, dayIndex) => (
             <div key={dayIndex}>
               <ul className="list-disc pl-6 border-2 border-white border-solid p-4 bg-white text-black">
-                <h2 className="text-xl font-bold sm:text-3xl sm:font-semibold text-red text-center mb-3">
+                <h2 className="text-xl font-bold sm:text-4xl sm:font-semibold text-red text-center mb-3 sm:mb-6">
                   Day {dayIndex + 1}
                 </h2>
                 {exercises.map((routine, exerciseIndex) => (
                   <li key={exerciseIndex} className="text-center">
-                    <div className="mb-3">
+                    <div className="mb-3 sm:mb-8">
                       <p>
-                        <span className="font-extrabold text-xl">
+                        <span className="font-extrabold text-xl sm:text-3xl">
                           {routine.name}{' '}
                         </span>{' '}
-                        ({routine.muscle_group})
+                        <span className="sm:text-2xl">
+                          ({routine.muscle_group})
+                        </span>
                       </p>
                       <p>
-                        <span className="font-bold text-base">3</span> sets x{' '}
-                        <span className="font-bold text-base">
+                        <span className="font-bold text-base sm:text-3xl">
+                          3
+                        </span>{' '}
+                        <span className="sm:text-2xl">sets x </span>
+                        <span className="font-bold text-base sm:text-3xl">
                           {routine.reps}
                         </span>{' '}
-                        reps
+                        <span className="sm:text-2xl">reps</span>
                       </p>
                     </div>
                   </li>

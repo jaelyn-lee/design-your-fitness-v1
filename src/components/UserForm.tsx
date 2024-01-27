@@ -78,7 +78,7 @@ export default function UserForm() {
         className="grid place-content-center w-full m-auto gap-4 mt-10"
       >
         <div className="flex justify-between">
-          <label htmlFor="first_name" className="py-1 px-3 box-border">
+          <label htmlFor="first_name" className="user-form-label">
             FIRST NAME:{' '}
           </label>
           <input
@@ -86,12 +86,12 @@ export default function UserForm() {
             name="first_name"
             value={formData.first_name}
             onChange={handleChange}
-            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
+            className="user-form-input"
             required
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="last_name" className="py-1 px-3 box-border">
+          <label htmlFor="last_name" className="user-form-label">
             LAST NAME:{' '}
           </label>
           <input
@@ -99,11 +99,11 @@ export default function UserForm() {
             name="last_name"
             value={formData.last_name}
             onChange={handleChange}
-            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
+            className="user-form-input"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="age" className="py-1 px-3 box-border">
+          <label htmlFor="age" className="user-form-label">
             AGE:{' '}
           </label>
           <input
@@ -111,11 +111,11 @@ export default function UserForm() {
             name="age"
             value={formData.age}
             onChange={handleChange}
-            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
+            className="user-form-input"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="height" className="py-1 px-3 box-border">
+          <label htmlFor="height" className="user-form-label">
             HEIGHT:{' '}
           </label>
           <input
@@ -124,11 +124,11 @@ export default function UserForm() {
             name="height"
             value={formData.height}
             onChange={handleChange}
-            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
+            className="user-form-input"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="weight" className="py-1 px-3 box-border">
+          <label htmlFor="weight" className="user-form-label">
             WEIGHT:{' '}
           </label>
           <input
@@ -137,11 +137,11 @@ export default function UserForm() {
             name="weight"
             value={formData.weight}
             onChange={handleChange}
-            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
+            className="user-form-input"
           ></input>
         </div>
         <div className="flex justify-between">
-          <label htmlFor="target_weight" className="py-1 px-3 box-border">
+          <label htmlFor="target_weight" className="user-form-label">
             TARGET WEIGHT:{' '}
           </label>
           <input
@@ -150,13 +150,13 @@ export default function UserForm() {
             name="target_weight"
             value={formData.target_weight}
             onChange={handleChange}
-            className="rounded-sm bg-zinc-800 text-white w-44 py-1 px-3 box-border"
+            className="user-form-input"
           ></input>
         </div>
         <button
           type="submit"
           onClick={handleSubmit}
-          className={`bg-red text-white py-2 px-14 rounded-3xl text-xl mt-5 ${
+          className={`bg-red text-white py-2 px-14 rounded-3xl text-xl mt-5 sm:text-4xl sm:py-4 sm:px-20 ${
             isFormValid ? '' : ' opacity-50 cursor-not-allowed'
           }`}
           disabled={!isFormValid}

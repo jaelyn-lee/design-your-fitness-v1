@@ -9,7 +9,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,19 +18,7 @@
 
 li {
   list-style: none;
-  /* position: relative; */
 }
-/* li:before {
-  content: '';
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
-  left: 0;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #000;
-} */
 
 a {
   font-weight: 500;
@@ -104,8 +91,12 @@ main {
   display: flex;
   justify-content: space-around;
   margin: 20px 0 0 0;
-  /* padding: 1rem 5rem;
-  margin: 0 2rem 0 0; */
+}
+
+@media screen and (mid-width: 640px) {
+  .goal-div {
+    margin: 100px 0 0 0;
+  }
 }
 .goal-container {
   background-color: beige;
@@ -117,11 +108,7 @@ main {
 
 @media screen and (min-width: 640px) {
   .goal-container {
-    background-color: beige;
-    width: 23vw;
-    position: relative;
-    height: 60vh;
-    padding: 10px 5px;
+    height: 40vh;
   }
 }
 
@@ -133,10 +120,11 @@ main {
 @media screen and (min-width: 640px) {
   .goal-container-image {
     height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     position: absolute;
-    left: 100px;
-    top: 10px;
-    z-index: 1;
   }
 }
 
@@ -145,7 +133,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 95%;
   padding: 0.5rem 0.25rem;
   border-radius: 30px;
   border: 1px solid #ab0404;
@@ -154,21 +142,39 @@ main {
   font-size: small;
   text-align: center;
   font-weight: 400;
-  /* z-index: 1; */
 }
 
 @media screen and (min-width: 640px) {
   .goal-container-button {
-    position: absolute;
-    left: 100px;
-    top: 200px;
-    width: 230px;
     padding: 1rem 2rem;
-    border-radius: 20px;
-    border: 1px solid #ab0404;
-    background-color: #ab0404;
-    color: white;
-    font-size: x-large;
-    z-index: 1;
+    font-size: xx-large;
+    font-weight: 500;
+  }
+}
+
+.user-form-label {
+  padding: 0.25rem 0.75rem;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 640px) {
+  .user-form-label {
+    font-size: xx-large;
+  }
+}
+
+.user-form-input {
+  border-radius: 0.125rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+  color: white;
+  width: 11rem;
+  padding: 0.25rem 0.75rem;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 640px) {
+  .user-form-input {
+    font-size: xx-large;
   }
 }

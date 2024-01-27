@@ -26,7 +26,7 @@ export default function FitnessLevel() {
   }
   return (
     <div className="grid place-content-center text-center w-full gap-6 pt-32">
-      <h1 className="text-4xl font-extrabold">
+      <h1 className="text-4xl sm:text-6xl font-extrabold">
         Rate your fitness level from 0 to 10:
       </h1>
       <RatingScale rating={rating} onChange={handleRatingChange} />
