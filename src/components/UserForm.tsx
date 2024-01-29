@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserData } from '../models/users'
 import { supabase } from '../supabase-client'
+import { useAuth0 } from '@auth0/auth0-react'
 // import { number, z } from 'zod'
 
 export default function UserForm() {
   const navigate = useNavigate()
+  const { user } = useAuth0()
 
   //Use ZOD to validate type
   // const invalid_type_error = 'Invalid type provided for this field'
@@ -74,7 +76,10 @@ export default function UserForm() {
 
   return (
     <>
-      <h1 className="font-semibold text-4xl sm:text-7xl mt-24 sm:mt-36 text-center">
+      <h1 className="font-semibold text-4xl sm:text-6xl mt-24 sm:mt-36 text-center uppercase">
+        Welcome, {user?.given_name}
+      </h1>
+      <h1 className="font-semibold text-4xl sm:text-6xl text-center">
         CHOOSE YOUR PERFECT BODY
       </h1>
       <form

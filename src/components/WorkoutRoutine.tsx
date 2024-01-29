@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabase-client'
+import { useAuth0 } from '@auth0/auth0-react'
 
 interface Exercises {
   id: number
@@ -13,10 +14,11 @@ interface Exercises {
 
 export default function WorkoutRoutine() {
   const location = useLocation()
-  const user = location.state?.user
+  const userData = location.state?.user
   console.log(location.state)
+  const { user } = useAuth0()
 
-  const fitnessLevel = user.fitness_level
+  const fitnessLevel = userData.fitness_level
 
   const [fetchedExercises, setFetchedExercises] = useState<Exercises[]>([])
 
@@ -60,7 +62,7 @@ export default function WorkoutRoutine() {
   return (
     <>
       <div className="flex flex-col items-center justify-center text-2xl font-bold sm:text-6xl sm:font-extrabold mb-10 text-center">
-        <h1>Thank you, {user.first_name}!</h1>
+        <h1>Thank you, {user?.given_name}!</h1>
         <h1>Here is your 4-day workout routine!</h1>
       </div>
       <div className="flex justify-center items-center">
