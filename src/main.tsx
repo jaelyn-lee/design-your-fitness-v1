@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     domain="dev-qavzg4wnqcjtq4hy.us.auth0.com"
     clientId="AQYHujDrCwoyh331JkIkzRlwuFgfHZhS"
     authorizationParams={{
-      redirect_uri: 'http://localhost:5173/user-form',
+      redirect_uri: 'https://design-your-fitness.vercel.app/user-form',
     }}
   >
     <React.StrictMode>
