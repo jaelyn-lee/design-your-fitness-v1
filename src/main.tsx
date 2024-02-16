@@ -7,10 +7,10 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Auth0Provider
-    domain="dev-qavzg4wnqcjtq4hy.us.auth0.com"
-    clientId="AQYHujDrCwoyh331JkIkzRlwuFgfHZhS"
+    domain="dev-qavzg4wnqcjtq4hy.us.auth0.com" //{process.env.AUTH0_DOMAIN as string}
+    clientId="AQYHujDrCwoyh331JkIkzRlwuFgfHZhS" //{process.env.AUTH0_CLIENT_ID as string}
     authorizationParams={{
-      redirect_uri: 'https://design-your-fitness.vercel.app/user-form',
+      redirect_uri: `${window.location.origin}/user-form`,
     }}
   >
     <React.StrictMode>

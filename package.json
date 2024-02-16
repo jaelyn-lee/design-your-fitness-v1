@@ -14,6 +14,7 @@
     "@supabase/supabase-js": "^2.39.3",
     "@tanstack/react-query": "^5.17.19",
     "chart.js": "^4.4.1",
+    "framer-motion": "^11.0.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
     "react": "^18.2.0",
@@ -22,6 +23,7 @@
     "react-router-dom": "^6.21.3",
     "sort-by": "^1.2.0",
     "superagent": "^8.1.2",
+    "usehooks-ts": "^2.14.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
