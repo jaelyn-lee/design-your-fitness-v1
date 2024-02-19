@@ -10,6 +10,7 @@ import GoalView from '../views/GoalView'
 import UserFormView from '../views/UserFormView'
 import WorkoutRoutineView from '../views/WorkoutRoutineView'
 import WeightTrackerView from '../views/WeightTrackerView'
+import MyPageView from '../views/MyPageView'
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ export const router = createBrowserRouter(
       <Route path="fitness-levels" element={<FitnessLevelView />} />
       <Route path="workout-routine" element={<WorkoutRoutineView />} />
       <Route path="weight-tracker" element={<WeightTrackerView />} />
-    </Route>,
-  ),
+      <Route path="my-page" element={<MyPageView />} />
+    </Route>
+  )
 )
